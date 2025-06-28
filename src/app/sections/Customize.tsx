@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
 import { generatePngFromElement } from "../GenerateImage";
-import Logo from "../components/Logo";
+import { downloadElementAsPng } from "../DownloadFunction";
 import CustomizeBox from "../components/CustomizeBox";
 import FrameView from "../components/FrameView";
-import { downloadElementAsPng } from "../DownloadFunction";
-
+import emojiClick from "../EmojiClick";
+import Logo from "../components/Logo";
 
 export default function Customize({ images, selectedStyle }: CustomizeProps) {
 
@@ -37,9 +37,11 @@ const handleDoneClick = async () => {
       <>
         <div className="flex flex-row justify-center h-[100vh] overflow-hidden">
           <div ref={captureRef}>
-            
-              <FrameView images={images} selectedStyle={selectedStyle} />
-            
+            <div className="flex items-center justify-center h-screen overflow-hidden">
+              <div onClick={() => emojiClick(selectedEmoji)} className="bg-blue-500 scale-[0.5] origin-center">
+                <FrameView images={images} selectedStyle={selectedStyle} />
+              </div>
+            </div>
           </div>
           <div className="flex flex-col">
             <div className="flex flex-col justify-center mt-36">
@@ -57,12 +59,7 @@ const handleDoneClick = async () => {
   }
 }
 
-
 interface CustomizeProps {
   images: string[];
   selectedStyle: string;
 }
-
-  //h-[1530px] w-[514px] for frame
-  //h-[345px] w-[543px] mt-[81px] ml-[41px] mr-[41px] for individual pic
-  //<button onClick={handleDownload} className="flex justify-center"><div className="flex">download</div></button>

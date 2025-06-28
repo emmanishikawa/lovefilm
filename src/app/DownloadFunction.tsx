@@ -3,8 +3,6 @@ import { toPng } from "html-to-image";
 export async function downloadElementAsPng(element: HTMLElement, filename = "download.png") {
   try {
     
-    const originalTransform = element.style.transform;
-
     const dataUrl = await toPng(element, {
       cacheBust: true,
       pixelRatio: 2,
