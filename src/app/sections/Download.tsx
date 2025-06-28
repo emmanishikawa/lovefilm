@@ -1,7 +1,5 @@
-import Image from "next/image";
-import { RefObject, useRef } from "react";
+import { useRef } from "react";
 import { downloadElementAsPng } from "../DownloadFunction";
-import FrameView from "../components/FrameView";
 
 export default function Download_Page({ src } : DownloadProps) {
 

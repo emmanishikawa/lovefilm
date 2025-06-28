@@ -1,7 +1,5 @@
-import Image from "next/image";
-import { RefObject } from "react";
-import { downloadElementAsPng } from "../DownloadFunction";
 import ColorOverlay from "./ColorOverlay";
+import emojiClick from "../EmojiClick"
 
 export default function FrameView({images, selectedStyle} : FrameViewProps) {
 
@@ -15,7 +13,7 @@ export default function FrameView({images, selectedStyle} : FrameViewProps) {
     return(
         <>
         <div className="flex justify-start h-[100vh] overflow-hidden mr-2">
-          <div className="flex scale-[0.5] h-[1530px] w-[514px] self-center bg-white"> 
+          <div onClick={emojiClick} className="flex scale-[0.5] h-[1530px] w-[514px] self-center bg-white"> 
             <div className="flex flex-col h-[345px] w-[543px] mt-[81px] ml-[41px] mr-[41px]">
               {images.map((src, index) => (
                 <div key={index} className="relative mt-[4px]">
@@ -33,7 +31,7 @@ export default function FrameView({images, selectedStyle} : FrameViewProps) {
     return(
         <>
             <div className="flex justify-start h-[100vh] overflow-hidden mr-2">
-                <div className="flex scale-[0.5] h-[1086px] w-[724px] self-center bg-white items-center justify-center">
+                <div onClick={emojiClick} className="flex scale-[0.5] h-[1086px] w-[724px] self-center bg-white items-center justify-center">
                     <div className="grid grid-cols-2 grid-rows-2 gap-5 mx-auto">
                         {images.map((src, index) => (
                             <div key={index} className="relative w-[314px] h-[470px]">

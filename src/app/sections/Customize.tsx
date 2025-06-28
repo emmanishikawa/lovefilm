@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { generatePngFromElement } from "../GenerateImage";
 import Logo from "../components/Logo";
 import CustomizeBox from "../components/CustomizeBox";
-import Download_Page from "./Download";
 import FrameView from "../components/FrameView";
 import { downloadElementAsPng } from "../DownloadFunction";
 
@@ -38,7 +37,9 @@ const handleDoneClick = async () => {
       <>
         <div className="flex flex-row justify-center h-[100vh] overflow-hidden">
           <div ref={captureRef}>
-            <FrameView images={images} selectedStyle={selectedStyle} />
+            
+              <FrameView images={images} selectedStyle={selectedStyle} />
+            
           </div>
           <div className="flex flex-col">
             <div className="flex flex-col justify-center mt-36">
