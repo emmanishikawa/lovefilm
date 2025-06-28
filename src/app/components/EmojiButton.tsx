@@ -11,8 +11,8 @@ export default function EmojiButton({ emoji, isSelected, onClick }: EmojiProps) 
                 <Image
           src={`/assets/${emoji}.png`}
           alt={emoji}
-          width={32} 
-          height={32}
+          width={30} 
+          height={30}
           className="object-contain"
         />
             </button>
