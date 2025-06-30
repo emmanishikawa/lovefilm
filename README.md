@@ -16,7 +16,7 @@ this is a work-in-progress personal project that allows users to take personaliz
 
 **technology used**: Next.js, React, Tailwind
 
-# next steps for the project:
+### next steps for the project:
 
 - finish undo button function for emojis
 - implement mobile version
