@@ -1,6 +1,7 @@
 import Image from "next/image";
+import { emojis, type EmojiType } from './EmojiImage';
 
-export default function EmojiButton({ emoji, isSelected, onClick }: EmojiProps) {
+export default function EmojiButton({ emojiKey, isSelected, onClick }: EmojiProps) {
   return (
     <>
         <div className="flex justify-center h-16 w-16">
@@ -8,13 +9,13 @@ export default function EmojiButton({ emoji, isSelected, onClick }: EmojiProps) 
                 className={`flex h-16 w-16 rounded-md  transition ease-in-out duration-400 items-center justify-center ${
                             isSelected ? "bg-[#D8E8F8] border-[1px] border-white" : "bg-white hover:bg-[#EDF3FB]"
                             }`}>
-                <Image
-          src={`/assets/${emoji}.png`}
-          alt={emoji}
-          width={30} 
-          height={30}
-          className="object-contain"
-        />
+                <img
+                  src={emojis[emojiKey]}
+                  alt={emojiKey}
+                  width={30}
+                  height={30}
+                  className="object-contain"
+                />
             </button>
         </div>
     </>
@@ -22,7 +23,7 @@ export default function EmojiButton({ emoji, isSelected, onClick }: EmojiProps) 
 }
 
 interface EmojiProps {
-    emoji: string;
+    emojiKey: EmojiType;
     isSelected: boolean;
     onClick: () => void;
 }

@@ -1,20 +1,31 @@
 import EmojiButton from "./EmojiButton";
 import * as React from "react"
+import { EmojiType } from "./EmojiImage";
+
+export const emojiKeys: EmojiType[] = [
+  'bubble',
+  'bunny',
+  'dango',
+  'hearts',
+  'polar',
+  'ribbon',
+  'sparkle',
+  'teddy',
+  'thinking',
+];
 
 export default function CustomizeBox({ onSelectEmoji, selectedEmoji }: CustomizeBoxProps) {
-
-    const emojis = ["bubble", "bunny", "dango", "hearts", "polar", "ribbon", "sparkle", "teddy", "thinking"];
 
     return (
         <>
             <div className="">
                 <div className="grid grid-cols-3 grid-rows-3 gap-5 mx-auto">
-                    {emojis.map((emoji, index) => (
+                    {emojiKeys.map((emojiKey) => (
                         <EmojiButton
-                            key={index}
-                            emoji={emoji}
-                            isSelected={selectedEmoji === emoji}
-                            onClick={() => onSelectEmoji(emoji)}
+                            key={emojiKey}
+                            emojiKey={emojiKey}
+                            isSelected={selectedEmoji === emojiKey}
+                            onClick={() => onSelectEmoji(emojiKey)}
                         />
                     ))}
                 </div>
@@ -24,8 +35,8 @@ export default function CustomizeBox({ onSelectEmoji, selectedEmoji }: Customize
 }
 
 interface CustomizeBoxProps {
-    onSelectEmoji: (emoji: string) => void;
-    selectedEmoji: string | null;
+    onSelectEmoji: (emoji: EmojiType) => void;
+    selectedEmoji: EmojiType | null;
 }
 
 
