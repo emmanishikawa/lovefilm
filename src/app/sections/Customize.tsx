@@ -33,15 +33,10 @@ export default function Customize({ images, selectedStyle }: CustomizeProps) {
   };
 
   const [placedEmojis, setPlacedEmojis] = useState<EmojiDiv[]>([]);
+
   const handleUndoClick = () => {
-    setPlacedEmojis((prev) => {
-        if (prev.length === 0) return prev;
-        return prev.slice(0, prev.length - 1);
-      });
+    setPlacedEmojis(prev => prev.slice(0, -1)); // no mutation
   };
-
-
-
 
   if(!isClicked){
       return (
@@ -50,7 +45,11 @@ export default function Customize({ images, selectedStyle }: CustomizeProps) {
           <div ref={captureRef}>
             <div className="flex items-center justify-center h-screen overflow-hidden">
               <div className="bg-blue-500 scale-[0.5] origin-center">
-                <ClickEmojiSpawner emoji={selectedEmoji} onUpdateEmojis={(emojis) => setPlacedEmojis(emojis)}/>
+                <ClickEmojiSpawner
+                    emoji={selectedEmoji}
+                    emojis={placedEmojis}
+                    setEmojis={setPlacedEmojis}
+                  />
                 <FrameView images={images} selectedStyle={selectedStyle} />
               </div>
             </div>
