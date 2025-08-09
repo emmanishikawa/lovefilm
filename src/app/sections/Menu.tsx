@@ -10,7 +10,7 @@ export default function Menu() {
 
   return (
     <>
-    {!isClicked && (<div className="flex flex-col items-center justify-center min-h-screen">
+    {!isClicked && (<div className="hidden md:flex flex-col items-center justify-center min-h-screen">
       <Logo/>
     <div className="flex items-center justify-center h-[345px] w-[432px] bg-white rounded-[15px]">
         <button 
