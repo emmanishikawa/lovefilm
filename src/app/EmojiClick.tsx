@@ -12,8 +12,8 @@ export default function ClickEmojiSpawner({ emoji, emojiSize = 30, emojis, setEm
     if (!emoji) return;
 
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) * 2;
-    const y = (e.clientY - rect.top) * 2;
+    const x = (e.clientX - rect.left) * 2 - 15;
+    const y = (e.clientY - rect.top) * 2 - 15;
 
     setEmojis(prev => [...prev, { x, y, id: idCounter, type: emoji }]);
     setIdCounter(prev => prev + 1);
